@@ -8,9 +8,12 @@ steps:
   commands:
   - go build
   - go test
-
-- name: frontend
-  image: node
-  commands:
-  - npm install
-  - npm run test
+  settings:
+    # registry: docker.io
+    repo: pavansa/dronya
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
+    tags: 
+      - latest
